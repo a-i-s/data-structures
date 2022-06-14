@@ -1,6 +1,8 @@
 ﻿using System;
 using DataStructures.DynamicArray;
 using DataStructures.CircularBuffer;
+using DataStructures.Queue;
+
 
 namespace DataStructures
 {
@@ -43,7 +45,36 @@ namespace DataStructures
             {
                 Console.WriteLine(circularBuffer.Get(i));// выведутся последние три элемента массива
             }
+            Console.WriteLine("_______________");
+
+            var p1 = new Person("Test", 10);
+            var p2 = new Person("Test2", 10);
+            var p3 = new Person("Test3", 10);
+            var p4 = new Person("Test4", 10);
+            var p5 = new Person("Test5", 10);
+            var p6 = new Person("Test6", 10);
+            var p7 = new Person("Test7", 10);
+
+            var queue = new Queue.Queue();// очередь
+            //queue.Dequeue();// выдаст ошибку System.IndexOutOfRangeException: Индекс находился вне границ массива.
+
             
+            queue.Enqueue(p1);
+            queue.Enqueue(p2);
+            Console.WriteLine(queue.Dequeue().Name);
+            Console.WriteLine(queue.Dequeue().Name);
+
+            queue.Enqueue(p3);
+            queue.Enqueue(p4);
+            queue.Enqueue(p5);
+            queue.Enqueue(p6);
+            queue.Enqueue(p7);
+
+            Console.WriteLine(queue.Dequeue().Name);
+            Console.WriteLine(queue.Dequeue().Name);
+            Console.WriteLine(queue.Dequeue().Name);
+            Console.WriteLine(queue.Dequeue().Name);
+            Console.WriteLine(queue.Dequeue().Name);
         }
     }
 }
