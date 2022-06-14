@@ -38,6 +38,7 @@
         <Reference Include="System.Xml" />
     </ItemGroup>
     <ItemGroup>
+        <Compile Include="CircularBuffer\CircularBuffer.cs" />
         <Compile Include="DynamicArray\DynamicArray.cs" />
         <Compile Include="Program.cs" />
         <Compile Include="Properties\AssemblyInfo.cs" />

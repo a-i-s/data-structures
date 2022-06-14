@@ -50,5 +50,5 @@ namespace DataStructures.DynamicArray
                     _nextIndex--;
                 }
             }
-        }
     }
+}
