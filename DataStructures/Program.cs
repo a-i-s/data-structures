@@ -47,34 +47,35 @@ namespace DataStructures
             }
             Console.WriteLine("_______________");
 
-            var p1 = new Person("Test", 10);
+            /*var p1 = new Person("Test", 10);
             var p2 = new Person("Test2", 10);
             var p3 = new Person("Test3", 10);
             var p4 = new Person("Test4", 10);
             var p5 = new Person("Test5", 10);
             var p6 = new Person("Test6", 10);
-            var p7 = new Person("Test7", 10);
+            var p7 = new Person("Test7", 10);*/
 
-            var queue = new Queue.Queue();// очередь
+            var queue = new Queue<string>();// очередь
             //queue.Dequeue();// выдаст ошибку System.IndexOutOfRangeException: Индекс находился вне границ массива.
 
             
-            queue.Enqueue(p1);
-            queue.Enqueue(p2);
-            Console.WriteLine(queue.Dequeue().Name);
-            Console.WriteLine(queue.Dequeue().Name);
+            queue.Enqueue("Привет");
+            queue.Enqueue("Пока");
+            Console.WriteLine(queue.Dequeue());
+            Console.WriteLine(queue.Dequeue());
+            var queue2 = new Queue<int>();
 
-            queue.Enqueue(p3);
-            queue.Enqueue(p4);
-            queue.Enqueue(p5);
-            queue.Enqueue(p6);
-            queue.Enqueue(p7);
+            queue2.Enqueue(1);
+            queue2.Enqueue(2);
+            queue2.Enqueue(3);
+            queue2.Enqueue(4);
+            queue2.Enqueue(5);
 
-            Console.WriteLine(queue.Dequeue().Name);
-            Console.WriteLine(queue.Dequeue().Name);
-            Console.WriteLine(queue.Dequeue().Name);
-            Console.WriteLine(queue.Dequeue().Name);
-            Console.WriteLine(queue.Dequeue().Name);
+            Console.WriteLine(queue2.Dequeue());
+            Console.WriteLine(queue2.Dequeue());
+            Console.WriteLine(queue2.Dequeue());
+            Console.WriteLine(queue2.Dequeue());
+            Console.WriteLine(queue2.Dequeue());
         }
     }
 }
