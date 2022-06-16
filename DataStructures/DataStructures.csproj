@@ -40,6 +40,7 @@
     <ItemGroup>
         <Compile Include="CircularBuffer\CircularBuffer.cs" />
         <Compile Include="DynamicArray\DynamicArray.cs" />
+        <Compile Include="Heap\Heap.cs" />
         <Compile Include="Program.cs" />
         <Compile Include="Properties\AssemblyInfo.cs" />
         <Compile Include="Queue\Queue.cs" />

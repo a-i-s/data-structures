@@ -2,6 +2,7 @@
 using DataStructures.DynamicArray;
 using DataStructures.CircularBuffer;
 using DataStructures.Queue;
+using DataStructures.Heap;
 
 
 namespace DataStructures
@@ -76,6 +77,28 @@ namespace DataStructures
             Console.WriteLine(queue2.Dequeue());
             Console.WriteLine(queue2.Dequeue());
             Console.WriteLine(queue2.Dequeue());
+            
+            Console.WriteLine("_______________");
+
+            Heap.Heap heap = new Heap.Heap();// куча
+            heap.Add(5);
+            heap.Add(3);
+            heap.Add(25);
+            heap.Add(17);
+            heap.Add(7);
+            heap.Add(1);
+            heap.Add(19);
+            heap.Add(2);
+
+            for (int i = 0; i < heap.Count; i++)
+            {
+                Console.WriteLine(heap.Get(i));
+            }
+            Console.WriteLine("_______________");
+            Console.WriteLine("Max 1:" + heap.ExtractMaximum());
+            Console.WriteLine("Max 2:" + heap.ExtractMaximum());
+            Console.WriteLine("Max 3:" + heap.ExtractMaximum());
+            Console.WriteLine("Max 4:" + heap.ExtractMaximum());
         }
     }
 }
