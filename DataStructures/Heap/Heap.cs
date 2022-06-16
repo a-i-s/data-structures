@@ -1,19 +1,20 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace DataStructures.Heap
 {
-    public class Heap
+    public class Heap<T> where T : IComparable<T>
     {
         public int Count => _heapData.Count;
-        private List<int> _heapData = new List<int>();
+        private List<T> _heapData = new List<T>();
 
-        public void Add(int value)
+        public void Add(T value)
         {
             _heapData.Add(value);// добавляем элемент в конец массива
             ShiftUp(_heapData.Count - 1);// индекс последнего элемента
         }
 
-        public int Get(int index)// метод получения элемента
+        public T Get(int index)// метод получения элемента
         {
             return _heapData[index];
         }
@@ -23,7 +24,7 @@ namespace DataStructures.Heap
             int parentIndex = (index - 1) / 2;
             var currentElement = _heapData[index];//наш текущий элемент
             var parentElement = _heapData[parentIndex];// родительский элемент
-            if (currentElement > parentElement)
+            if (currentElement.CompareTo(parentElement) > 0)
             {
                 Swap(_heapData, index, parentIndex); 
                 ShiftUp(parentIndex);// используем рекурсию для просеивания элемента под индексом parentIndex
@@ -44,14 +45,14 @@ namespace DataStructures.Heap
             // по умолчанию принимаем, что индекс максимального потомок = индексу левого потомку
             var maxChildIndex = leftChildIndex;
             // если правый топомок есть и он оказался больше, чем левый
-            if ((rightChildIndex < _heapData.Count) && (_heapData[leftChildIndex] < _heapData[rightChildIndex]))
+            if ((rightChildIndex < _heapData.Count) && (_heapData[leftChildIndex].CompareTo(_heapData[rightChildIndex]) < 0))
             {
                 // тогда пометим как индекс максимального потомка - индекс правого потомка
                 maxChildIndex = rightChildIndex;
             }
             
             // если наш элемент оказался УЖЕ больше, чем наш максимальный топомок, то просеивание заканчиваем
-            if (_heapData[index] > _heapData[maxChildIndex])
+            if (_heapData[index].CompareTo(_heapData[maxChildIndex]) > 0)
             {
                 return;
             }
@@ -61,14 +62,14 @@ namespace DataStructures.Heap
 
         }
 
-        private void Swap(List<int> array, int leftIndex, int rightIndex)//меняем элементы местами
+        private void Swap(List<T> array, int leftIndex, int rightIndex)//меняем элементы местами
         {
             var tempElement = array[leftIndex];
             array[leftIndex] = array[rightIndex];
             array[rightIndex] = tempElement;
         }
 
-        public int ExtractMaximum()// метод удаления максимального элемента
+        public T ExtractMaximum()// метод удаления максимального элемента
         {
             var result = _heapData[0];// максимальный элемент кладем в переменную
             _heapData[0] = _heapData[_heapData.Count - 1];// последний элемент ставим на место первого

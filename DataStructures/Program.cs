@@ -80,7 +80,7 @@ namespace DataStructures
             
             Console.WriteLine("_______________");
 
-            Heap.Heap heap = new Heap.Heap();// куча
+            Heap<int> heap = new Heap<int>();// куча
             heap.Add(5);
             heap.Add(3);
             heap.Add(25);
