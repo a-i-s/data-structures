@@ -2,24 +2,7 @@
 
 namespace DataStructures.Queue
 {
-   /* public class Person
-    {
-        public string Name;
-        public int Age;
-
-        public Person(string name, int age)
-        {
-            Name = name;
-            Age = age;
-        }
-
-        public void Print()
-        {
-            Console.WriteLine("Name: " + Name + " Age: " + Age);
-        }
-    }*/
-
-    public class Queue<T>// очередь
+   public class Queue<T>// очередь
     {
         private const int DEFAULT_COUNT_ELEMENTS = 3;
         
@@ -35,10 +18,6 @@ namespace DataStructures.Queue
 
         public void Enqueue(T value)// метод добавления объекта в конец очереди
         {
-            //if (_count > 0 && _nextIndex % _elements.Length == _headIndex % _elements.Length)//_nextIndex отвечает 
-            //за общее количество элементов, значит если он больше 0, то хоть один элемент был добавлен;
-            //_nextIndex % _elements.Length - отвечает за индекс в массиве, если эта величина равна голове, то голову
-            //тоже необходимо передвинуть
             if (_nextIndex - _headIndex >= _elements.Length)
             {
                 ExtendQueue();
@@ -47,7 +26,6 @@ namespace DataStructures.Queue
             _elements[currentIndex] = value;
             
             ++_nextIndex;
-            
         }
 
         private void ExtendQueue()// метод расширения очереди

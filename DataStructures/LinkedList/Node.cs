@@ -2,21 +2,9 @@
 
 namespace DataStructures.LinkedList
 {
-    /*public class Person
-    {
-        public string Name;
-        public int Age;
-        public Person(string name, int age)
-        {
-            Name = name;
-            Age = age;
-        }
-    }*/
-
     public class Node<T>
     {
         public Node<T> Next;
-        //public Node Previous;
         public T Value;
 
         public Node(T value)

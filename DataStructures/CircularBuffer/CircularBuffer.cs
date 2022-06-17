@@ -35,6 +35,5 @@
             }
             return _elements[(_nextIndex + index) % _elements.Length];
         }
-        
     }
 }
