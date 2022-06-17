@@ -2,7 +2,7 @@
 
 namespace DataStructures.LinkedList
 {
-    public class Person
+    /*public class Person
     {
         public string Name;
         public int Age;
@@ -11,32 +11,32 @@ namespace DataStructures.LinkedList
             Name = name;
             Age = age;
         }
-    }
+    }*/
 
-    public class Node
+    public class Node<T>
     {
-        public Node Next;
+        public Node<T> Next;
         //public Node Previous;
-        public Person Value;
+        public T Value;
 
-        public Node(Person value)
+        public Node(T value)
         {
             Value = value;
         }
         public void Print()// метод вывода объекта на консоль
         {
-            Console.WriteLine("Name:" + Value.Name + "Age:" + Value.Age);
+            Console.WriteLine(Value);
         }
     }
 
-    public class LinkedList
+    public class LinkedList<T>
     {
-        public Node Head = null; // Первый (головной) элемент списка
-        public Node Tail = null; // Крайний (хвостовой) элемент списка 
+        public Node<T> Head = null; // Первый (головной) элемент списка
+        public Node<T> Tail = null; // Крайний (хвостовой) элемент списка 
 
-        public void AddLast(Person data) // метод добавить данные в  связный список
+        public void AddLast(T data) // метод добавить данные в конец связанного списка
         {
-            Node node = new Node(data); // создали ноду и передали туда значение
+            Node<T> node = new Node<T>(data); // создали ноду и передали туда значение
             if (Tail == null)
             {
                 Head = node;
@@ -50,9 +50,9 @@ namespace DataStructures.LinkedList
             }
         }
 
-        public void AddFirst(Person data) // метод добавления ноды в самое начало
+        public void AddFirst(T data) // метод добавления ноды в самое начало
         {
-            Node node = new Node(data);
+            Node<T> node = new Node<T>(data);
             if (Head == null) // означает, что элементов вообще еще не было
             {
                 Head = node;
@@ -65,16 +65,16 @@ namespace DataStructures.LinkedList
             }
         }
 
-        public void Remove(Person data) // метод удалкния данных из связного списка
+        public void Remove(T data) // метод удаления данных из связного списка
             // Выполняется удаление первого совпадения данных.
         {
-            Node previousNode = null; // сохранячем предыдущую node
+            Node<T> previousNode = null; // сохранячем предыдущую node
             var currentNode = Head;
             // ищем node
             while (currentNode != null) // таким образом пробежим по всем node
             {
                 // если текущая node, та самая искомая node, которую нужно найти
-                if (currentNode.Value.Name == data.Name && currentNode.Value.Age == data.Age)
+                if (currentNode.Value.Equals(data))
                 {
                     RemoveNode(currentNode, previousNode);
                 }
@@ -83,7 +83,7 @@ namespace DataStructures.LinkedList
                 currentNode = currentNode.Next;
             }
         }
-        private void RemoveNode(Node removingNode, Node previousNode)
+        private void RemoveNode(Node<T> removingNode, Node<T> previousNode)
         {
             if (removingNode == Head)
             {

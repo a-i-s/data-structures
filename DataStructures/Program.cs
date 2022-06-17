@@ -103,34 +103,26 @@ namespace DataStructures
             
             Console.WriteLine("_______________");
 
-            var list2 = new LinkedList.LinkedList();// двусвязанный список
+            var list2 = new LinkedList<string>();// двусвязанный список
             // Добавляем элементы в конец.
-            list2.AddLast(new Person("Вася", 18));
-            list2.AddLast(new Person("Петя", 20));
+            list2.AddLast("Вася");
+            list2.AddLast("Петя");
 
             // Выводим все элементы на консоль.
-            list2.PrintAll();
+            list2.PrintAll();// Вася, Петя
             Console.WriteLine("_______________");
-            //Name: Вася Age: 18
-            //Name: Петя Age: 20
-
+            
             //Добавляем элементы в начало.
-            list2.AddFirst(new Person("Антон", 25));
-            list2.AddFirst(new Person("Рома", 10));
+            list2.AddFirst("Антон");
+            list2.AddFirst("Рома");
             // Выводим все элементы на консоль.
-            list2.PrintAll();
+            list2.PrintAll();// Рома, Антон, Вася, Тепя
             Console.WriteLine("_______________");
-            // Name: Рома Age: 10
-            // Name: Антон Age: 25
-            // Name: Вася Age: 18
-            // Name: Петя Age: 20
-
+            
             // Удаляем элемент.
-            list2.Remove(new Person("Вася", 18));
-            list2.PrintAll();
-            // Name: Рома Age: 47
-            // Name: Антон Age: 25
-            // Name: Петя Age: 20
+            list2.Remove("Вася");
+            list2.PrintAll();// Рома, Антон, Петя
+            
 
 
         }
