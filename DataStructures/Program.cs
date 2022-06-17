@@ -3,6 +3,7 @@ using DataStructures.DynamicArray;
 using DataStructures.CircularBuffer;
 using DataStructures.Queue;
 using DataStructures.Heap;
+using DataStructures.LinkedList;
 
 
 namespace DataStructures
@@ -99,7 +100,42 @@ namespace DataStructures
             Console.WriteLine("Max 2:" + heap.ExtractMaximum());
             Console.WriteLine("Max 3:" + heap.ExtractMaximum());
             Console.WriteLine("Max 4:" + heap.ExtractMaximum());
+            
+            Console.WriteLine("_______________");
+
+            var list2 = new LinkedList.LinkedList();// двусвязанный список
+            // Добавляем элементы в конец.
+            list2.AddLast(new Person("Вася", 18));
+            list2.AddLast(new Person("Петя", 20));
+
+            // Выводим все элементы на консоль.
+            list2.PrintAll();
+            Console.WriteLine("_______________");
+            //Name: Вася Age: 18
+            //Name: Петя Age: 20
+
+            //Добавляем элементы в начало.
+            list2.AddFirst(new Person("Антон", 25));
+            list2.AddFirst(new Person("Рома", 10));
+            // Выводим все элементы на консоль.
+            list2.PrintAll();
+            Console.WriteLine("_______________");
+            // Name: Рома Age: 10
+            // Name: Антон Age: 25
+            // Name: Вася Age: 18
+            // Name: Петя Age: 20
+
+            // Удаляем элемент.
+            list2.Remove(new Person("Вася", 18));
+            list2.PrintAll();
+            // Name: Рома Age: 47
+            // Name: Антон Age: 25
+            // Name: Петя Age: 20
+
+
         }
+
+       
     }
 }
 

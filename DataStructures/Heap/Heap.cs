@@ -3,6 +3,9 @@ using System.Collections.Generic;
 
 namespace DataStructures.Heap
 {
+    // Parent (i-1)/2 <-округляем в нижнюю сторону
+    // Left 2*1+1
+    // Right 2*1+2
     public class Heap<T> where T : IComparable<T>
     {
         public int Count => _heapData.Count;
